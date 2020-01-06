@@ -5,6 +5,8 @@ import { faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import '../../Css/Style.css'
+import logo from '../../Image/company.png'
+
 
 function CardList(props) {
     return (
@@ -12,7 +14,7 @@ function CardList(props) {
         { props.Companies.card.map(item => (
             (!item.logo) ?
             <div class="containerImage">
-                <img src="../../Image/profile-icon.png" alt="CardImage" className="imageGrid"/>
+                <img src={logo} alt="CardImage" className="imageGrid"/>
                 <div class="overlay">
                     <Container>
                         <Row>

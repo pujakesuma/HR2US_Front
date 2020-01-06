@@ -13,7 +13,6 @@ function CardList(props) {
         <>
         {
             props.Engineers.card.map(item => (
-                
                 (!item.photo) ?
                 <div className='containerImage'>
                     <img src={pict} className='imageGrid' alt='CardImage'/>
