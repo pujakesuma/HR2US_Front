@@ -79,7 +79,7 @@ class Login extends Component {
                                     <Form.Group controlId="formGridState">
                                         <Form.Label> Role </Form.Label>
                                         <Form.Control as="select" name="role" onChange={(e) => this.setState({role: e.target.value })}>
-                                            <option value='..'>..</option>
+                                            <option value='..'>Login as...</option>
                                             <option value='company'>company</option>
                                             <option value='engineer'>engineer</option>
                                         </Form.Control>
