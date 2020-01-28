@@ -96,7 +96,7 @@ class EditProfile extends Component {
                         <Form onSubmit={ (e) => this.Update(e)}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Name</Form.Label>
-                                <Form.Control onChange={ (e) => this.setState({name: e.target.value})} name="name" type="text" value={this.state.name} placeholder="Enter name"/>
+                                <Form.Control onChange={ (e) => {this.setState({name: e.target.value});console.log(e.target.value)}} name="name" type="text" value={this.state.name} placeholder="Enter name"/>
                             </Form.Group>
                             <Form.Group>
                                 <Form.Label>Photo</Form.Label>

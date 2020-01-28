@@ -3,7 +3,7 @@ import rootReducer from '../reducers'
 import promiseMiddleware from 'redux-promise-middleware'
 import { createLogger } from 'redux-logger'
 
-const logger = createLogger({})
+const logger = createLogger()
 
 const store = createStore(
     rootReducer,

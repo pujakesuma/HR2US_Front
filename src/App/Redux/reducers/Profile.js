@@ -14,12 +14,6 @@ const initialState = {
     isLoading: false,
     message: '',
 
-    CompanyId: '',
-    CompanyName: '',
-    CompanyLogo: null,
-    CompanyDesc: '',
-    CompanyLocation: '',
-    CompanyEmail: '',
 }
 
 const Profile = (state=initialState, action) => {
@@ -27,9 +21,6 @@ const Profile = (state=initialState, action) => {
         case "GET_ENGINEER_PENDING":
             case "DELETE_ENGINEER_PENDING":
                 case "UPDATE_ENGINEER_PENDING":
-                    case "GET_COMPANY_PENDING":
-                        case "DELETE_COMPANY_PENDING":
-                            case "UPDATE_COMPANY_PENDING":
                                 return{
                                     ...state,
                                     isLoading: true,
@@ -54,27 +45,13 @@ const Profile = (state=initialState, action) => {
                 isError: false,
                 isLoading: false
             }
-        case "GET_COMPANY_FULFILLED":
-            return{
-                ...state,
-                CompanyId: action.payload.data.response[0].id,
-                CompanyName: action.payload.data.response[0].name,
-                CompanyLogo: action.payload.data.response[0].logo,
-                CompanyEmail: action.payload.data.response[0].email,
-                CompanyDesc: action.payload.data.response[0].description,
-                CompanyLocation: action.payload.data.response[0].location,
-                isError: false,
-                isLoading: false
-            }
         case "GET_ENGINEER_REJECTED":
-            case "GET_COMPANY_REJECTED":
                 return{
                     ...state,
                     isLoading: false,
                     isError: true
                 }
         case "DELETE_ENGINEER_FULFILLED":
-            case "DELETE_COMPANY_FULFILLED":
                 return{
                     ...state,
                     isDeleted: true,
@@ -82,7 +59,6 @@ const Profile = (state=initialState, action) => {
                     isError: false
                 }
         case "DELETE_ENGINEER_REJECTED":
-            case "DELETE_COMPANY_REJECTED":
                 return{
                     ...state,
                     isDeleted: false,
@@ -90,7 +66,6 @@ const Profile = (state=initialState, action) => {
                     isError: true
                 }
         case "UPDATE_ENGINEER_FULFILLED":
-            case "UPDATE_COMPANY_FULFILLED":
                 return{
                     ...state,
                     isError: false,
@@ -98,7 +73,6 @@ const Profile = (state=initialState, action) => {
                     message: 'Update Success!'
                 }
         case "UPDATE_ENGINEER_REJECTED":
-            case "UPDATE_COMPANY_REJECTED":
                 return{
                     ...state,
                     isError: true,

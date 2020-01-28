@@ -4,7 +4,8 @@ import { faUserCircle, faCommentDots, faSignOutAlt } from '@fortawesome/free-sol
 import Search from './Components/Search'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getEngineer, getCompany } from './Redux/actions/Profile' //get engineer not yet
+import { getEngineer } from './Redux/actions/Profile' //get engineer not yet
+import { getCompany } from './Redux/actions/CompanyProfile'
 import logo from './Image/ark.png'
 
 class Header extends Component {
@@ -12,6 +13,7 @@ class Header extends Component {
         (localStorage.getItem('role')==='engineer') ?
         this.getEngineerName('http://localhost:5000/api/engineers/'+localStorage.getItem('id')) :
         this.getCompanyName('http://localhost:5000/api/companies/'+localStorage.getItem('id'))
+        
     }
 
     getEngineerName = url => {
@@ -30,6 +32,8 @@ class Header extends Component {
     render() {
         let name
         (localStorage.getItem('role')==='engineer') ? name = (this.props.Engineers.user).split(' ') : name = (this.props.Companies.user).split(' ') //split engineer
+        console.log(this.props.Engineers.user)
+        console.log('askljdklwqjelkqjwe',this.props.Engineers.user)
         const first = name[0]
         return (
             <>

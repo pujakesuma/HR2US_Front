@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Card, Row, Col, Button, Form, Alert } from 'react-bootstrap'
 import Header from '../../Header'
 import { connect } from 'react-redux'
-import { getCompany, updateCompany } from '../../Redux/actions/Profile'
+import { getCompany, updateCompany } from '../../Redux/actions/CompanyProfile'
 
 class EditProfile extends Component {
     constructor(){
@@ -20,11 +20,11 @@ class EditProfile extends Component {
     componentDidMount(){
         this.getData(`http://localhost:5000/api/companies/`+this.props.match.params.id)
         this.setState({
-            name:this.props.Profile.CompanyName,
-            logo: this.props.Profile.CompanyLogo,
-            description: this.props.Profile.CompanyDesc,
-            location: this.props.Profile.CompanyLocation,
-            email: this.props.Profile.CompanyEmail
+            name:this.props.CompanyProfile.name,
+            logo: this.props.CompanyProfile.logo,
+            description: this.props.CompanyProfile.description,
+            location: this.props.CompanyProfile.location,
+            email: this.props.CompanyProfile.email
         })
     }
     getData = (url) => {
@@ -69,13 +69,13 @@ class EditProfile extends Component {
                         </Card>
                     </Col>
                     <Col>
-                        { (this.props.Profile.message==='Update Failed!') ? ( ['danger'].map((variant, idx) => (
+                        { (this.props.CompanyProfile.message==='Update Failed!') ? ( ['danger'].map((variant, idx) => (
                                     <Alert key={idx} variant={variant}>
-                                    {this.props.Profile.message}
+                                    {this.props.CompanyProfile.message}
                                     </Alert>)
-                                )) : (this.props.Profile.message==='Update Success!') && ( ['success'].map((variant, idx) => (
+                                )) : (this.props.CompanyProfile.message==='Update Success!') && ( ['success'].map((variant, idx) => (
                                     <Alert key={idx} variant={variant}>
-                                    {this.props.Profile.message}
+                                    {this.props.CompanyProfile.message}
                                     </Alert>)
                                 ))
                             }
@@ -112,7 +112,7 @@ class EditProfile extends Component {
 }
 
 const mapStateToProps = state => ({
-    Profile: state.Profile
+    CompanyProfile: state.CompanyProfile
 })
 
 const mapDispatchToProps = dispatch => ({

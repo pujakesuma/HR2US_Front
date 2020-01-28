@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import '../../Css/Style.css'
 import logo from '../../Image/company.png'
 
-
 function CardList(props) {
     return (
         <>
