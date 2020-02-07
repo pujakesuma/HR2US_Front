@@ -21,7 +21,7 @@ class EditProfile extends Component {
         }
     }
     componentDidMount(){
-        this.getData('http://localhost:5000/api/engineers/'+this.props.match.params.id)
+        this.getData('https://hr2us-app.herokuapp.com/api/engineers/'+this.props.match.params.id)
         this.setState({
             name: this.props.Profile.name,
             photo: this.props.Profile.photo,
@@ -60,7 +60,7 @@ class EditProfile extends Component {
                 }
             }
         )
-        const url = `http://localhost:5000/api/engineers/${localStorage.getItem('id')}`
+        const url = `https://hr2us-app.herokuapp.com/api/engineers/${localStorage.getItem('id')}`
         this.props.update(url, formData, config)
     }
 
@@ -77,7 +77,7 @@ class EditProfile extends Component {
             <Container className='justify-content-center mt-3' style={{ paddingBottom:'20px'}} >
                 <Row className='justify-content-center'>
                     <Col md='3'>
-                        <Card style={{ marginBottom:'15px', marginRight: '20px', borderRadius:'12%', width: '14rem', height:'20rem', backgroundImage: `url(http://localhost:5000/public/uploads/engineers/${this.state.photo})`,backgroundPosition:'center', backgroundSize: 'cover' }}>
+                        <Card style={{ marginBottom:'15px', marginRight: '20px', borderRadius:'12%', width: '14rem', height:'20rem', backgroundImage: `url(https://hr2us-app.herokuapp.com/api/engineers/${this.state.photo})`,backgroundPosition:'center', backgroundSize: 'cover' }}>
                             <Card.Body style={{ height: '200px'}}>
                             </Card.Body>
                         </Card>

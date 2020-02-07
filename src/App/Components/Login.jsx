@@ -23,7 +23,7 @@ class Login extends Component {
             role: this.state.role
         }
 
-        axios.post('http://localhost:5000/userAuth/login', dataLogin)
+        axios.post('https://hr2us-app.herokuapp.com/userAuth/login', dataLogin)
         .then( res => {
             console.log(res)
             console.log(dataLogin)

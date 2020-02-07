@@ -8,7 +8,7 @@ import '../Css/Style.css'
 
 class Card extends Component {
     componentDidMount(){
-        this.fetchEngineers('http://localhost:5000/api/engineers/?page=1')
+        this.fetchEngineers('https://hr2us-app.herokuapp.com/api/engineers/?page=1')
     }
 
     fetchEngineers = (url) => {
@@ -63,7 +63,7 @@ class Card extends Component {
                 </Row> :
                 this.props.Engineers.isError ? (
                     <Row className="justify-content-center">
-                        <Button variant="outline-primary" onClick={() => this.fetchEngineers('http://localhost:5000/api/engineers/?page=1')}>Try Again</Button>
+                        <Button variant="outline-primary" onClick={() => this.fetchEngineers('https://hr2us-app.herokuapp.com/api/engineers/?page=1')}>Try Again</Button>
                     </Row>
                 ) :
                 (
